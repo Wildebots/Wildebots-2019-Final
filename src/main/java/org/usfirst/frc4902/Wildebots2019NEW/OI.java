@@ -82,7 +82,7 @@ public class OI {
 
         
         // SmartDashboard Buttons
-        SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
+        SmartDashboard.putData("Autonomous Command", new Autonomous());
         SmartDashboard.putData("Arcade Drive", new ArcadeDrive());
         SmartDashboard.putData("Ball Collect_DropOff", new BallCollect_DropOff());
         SmartDashboard.putData("Lower Gripper", new LowerGripper());
