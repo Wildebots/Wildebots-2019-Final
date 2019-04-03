@@ -109,8 +109,12 @@ public class DriveTrain extends Subsystem {
             differentialDrive.arcadeDrive(stick.getY(Hand.kLeft), FlippRotationZOrientation*0.75*stick.getX(Hand.kLeft));
         }
 
-        //differentialDrive.arcadeDrive(stick.getY(Hand.kLeft), 0.75*stick.getX(Hand.kLeft)); // 75% of speed when turning
-        
+        //differentialDrive.arcadeDrive(stick.getY(Hand.kLeft), 0.75*stick.getX(Hand.kLeft)); // 75% of speed when turning   
+    }
+
+    public void drive(double leftSpeed, double rightSpeed)
+    {
+        differentialDrive.tankDrive(leftSpeed,rightSpeed);
     }
 
     // This method stops the motors by setting the speeds to 0.
@@ -119,5 +123,4 @@ public class DriveTrain extends Subsystem {
         differentialDrive.tankDrive(0, 0);
         differentialDrive.stopMotor();
     }
-
 }
