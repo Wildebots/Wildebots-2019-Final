@@ -61,7 +61,9 @@ public class Autonomous extends CommandGroup {
 
     // Called once after isFinished returns true
     @Override
-    protected void end() {
+    protected void end() 
+    {
+        System.out.println("Exiting Autonomous Code Execution");
     }
 
     // Called when another command which requires one or more of the same

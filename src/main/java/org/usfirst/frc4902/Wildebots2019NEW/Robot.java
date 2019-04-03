@@ -99,10 +99,15 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void autonomousPeriodic() {
+
+        /* IF L1 and L2 trigger are pressed 50% both at the same time, then the robot will stop executing the Autonomous.java code 
+            and it will be switched to manual control. The purpose of this is to have a KILL SWITCH and allow for manual override.
+            Please note that this will not get the program out of Autonomous Mode.
+        */
         if ((Robot.oi.getmy_Xbox360Controller().getRawAxis(2) >= 0.5) && (Robot.oi.getmy_Xbox360Controller().getRawAxis(3) >= 0.5))
         {
             System.out.println("Autonomous Command Stopped <KILL SWITCH>");
-            autonomousCommand.cancel();
+            autonomousCommand.cancel(); // Stop the autonomous command that is executing at Autonomous.java
         }
         else
         {

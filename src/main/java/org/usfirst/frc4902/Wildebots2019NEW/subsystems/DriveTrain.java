@@ -109,7 +109,7 @@ public class DriveTrain extends Subsystem {
             differentialDrive.arcadeDrive(stick.getY(Hand.kLeft), FlippRotationZOrientation*0.75*stick.getX(Hand.kLeft));
         }
 
-        //differentialDrive.arcadeDrive(stick.getY(Hand.kLeft), -0.75*stick.getX(Hand.kLeft));
+        //differentialDrive.arcadeDrive(stick.getY(Hand.kLeft), 0.75*stick.getX(Hand.kLeft)); // 75% of speed when turning
         
     }
 
