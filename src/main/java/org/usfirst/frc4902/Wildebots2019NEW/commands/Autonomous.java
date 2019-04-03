@@ -38,16 +38,18 @@ public class Autonomous extends CommandGroup {
         //requires(Robot.driveTrain);
         //addParallel(new ArcadeDrive());
 
-        addSequential(new Move_BCKWD(2.0)); // Move backward for 2 seconds
+/*         addSequential(new Move_BCKWD(2.0)); // Move backward for 2 seconds
         addSequential(new Turn_LEFT(0.5)); // Turn Left for 0.5 second
         addSequential(new Move_BCKWD(1.0)); // Move backward for 1 second
         addSequential(new Turn_LEFT(0.5)); // Turn Left for 0.5 second
         addSequential(new Move_FWD(2.0)); // Move forward for 2 seconds
         addSequential(new Turn_RIGHT(0.5)); // Turn Right for 0.5 seconds
-        addSequential(new Move_FWD(0.5)); // Move Forward for 0.5
+        addSequential(new Move_FWD(0.5)); // Move Forward for 0.5 */
 
 
-        //addSequential(new Move_Curve(-1.0,-0.85,1.0));
+        addSequential(new Move_Curve(-0.75,-0.8,1.5));
+        addSequential(new Turn_RIGHT(0.5));
+        addSequential(new Move_FWD(0.5));
     }
 
     // Called just before this Command runs the first time
