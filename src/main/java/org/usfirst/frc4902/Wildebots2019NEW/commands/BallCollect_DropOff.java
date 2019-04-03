@@ -64,6 +64,7 @@ public class BallCollect_DropOff extends Command {
         }  
         */
         Robot.ballMechanism.drive(motor_speed);
+        //System.out.println("Executing BallCollect_DropOff");
     }
     
     // Make this return true when this Command no longer needs to run execute()

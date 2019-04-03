@@ -45,6 +45,7 @@ public class LowerGripper extends Command {
     @Override
     protected void execute() {
         Robot.gripper.drivemotor(-0.5); // Drive the motor with 0.5 pwm speed in negative direction "lowers the grip"
+        //System.out.println("Executing LowerGripper");
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -99,7 +99,16 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void autonomousPeriodic() {
-        Scheduler.getInstance().run();
+        if ((Robot.oi.getmy_Xbox360Controller().getRawAxis(2) >= 0.5) && (Robot.oi.getmy_Xbox360Controller().getRawAxis(3) >= 0.5))
+        {
+            System.out.println("Autonomous Command Stopped <KILL SWITCH>");
+            autonomousCommand.cancel();
+        }
+        else
+        {
+            System.out.println("Executing: Autonomous Command");
+            Scheduler.getInstance().run();
+        } 
     }
 
     @Override
@@ -117,6 +126,7 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void teleopPeriodic() {
+        System.out.println("Executing: Teleop Command");
         Scheduler.getInstance().run();
     }
 }
