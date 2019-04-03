@@ -2,32 +2,41 @@
 package org.usfirst.frc4902.Wildebots2019NEW.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc4902.Wildebots2019NEW.Robot;
+import edu.wpi.first.wpilibj.Timer;
 
 public class Turn_RIGHT extends Command 
 {
+    private final Timer m_timer = new Timer();
+    private final double exe_seconds;
 
-    public Turn_RIGHT() // Constructor
+    public Turn_RIGHT(double t_seconds) // Constructor
     {
         requires(Robot.driveTrain);
+        this.exe_seconds = t_seconds;
     }
 
     @Override
     protected void initialize()
     {
         Robot.driveTrain.drive(0.0, 0.0); // Get the motors ready to drive and stop it as initialization
+        m_timer.reset();
+        m_timer.start();
     }
 
     @Override
     protected void execute() 
     {
-        Robot.driveTrain.drive(1.0, -1.0); // Full Speed Turn RIGHT. Speed values are between [-1.0..1.0]
-        //System.out.println("Executing Turn_RIGHT");
+        if(m_timer.get() < this.exe_seconds)
+        {
+            Robot.driveTrain.drive(1.0, -1.0); // Full Speed Turn RIGHT. Speed values are between [-1.0..1.0]
+            //System.out.println("Executing Turn_RIGHT");
+        }
     }
 
     @Override
     protected boolean isFinished()
     {
-        return false;
+        return (m_timer.get() >= this.exe_seconds);
     }
 
     // Called once after isFinished returns true
@@ -35,6 +44,7 @@ public class Turn_RIGHT extends Command
     protected void end() 
     {
         Robot.driveTrain.end(); // Stop the motor
+        m_timer.reset();
     }
 
     @Override
