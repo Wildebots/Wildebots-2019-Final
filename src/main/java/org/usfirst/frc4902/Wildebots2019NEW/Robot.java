@@ -11,7 +11,7 @@
 
 package org.usfirst.frc4902.Wildebots2019NEW;
 
-import org.usfirst.frc4902.Wildebots2019NEW.commands.Autonomous;
+import org.usfirst.frc4902.Wildebots2019NEW.commands.*;
 import org.usfirst.frc4902.Wildebots2019NEW.subsystems.*;
 
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -90,10 +90,8 @@ public class Robot extends TimedRobot {
     }
 
     @Override
-    public void autonomousInit() {
-        //autonomousCommand = chooser.getSelected();
-        // schedule the autonomous command (example)
-        //if (autonomousCommand != null) autonomousCommand.start();
+    public void autonomousInit() 
+    {
         autonomousCommand.start();
     }
 
@@ -116,7 +114,7 @@ public class Robot extends TimedRobot {
         {
             System.out.println("Executing: Autonomous Command");
             Scheduler.getInstance().run();
-        } 
+        }
     }
 
     @Override
@@ -133,7 +131,8 @@ public class Robot extends TimedRobot {
      * This function is called periodically during operator control
      */
     @Override
-    public void teleopPeriodic() {
+    public void teleopPeriodic() 
+    {
         System.out.println("Executing: Teleop Command");
         Scheduler.getInstance().run();
     }
